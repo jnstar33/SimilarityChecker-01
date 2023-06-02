@@ -20,3 +20,8 @@ TEST(SimilarityChecker, getScoreWithLength04) {
 	SimilarityChecker checker("BAA", "AAABB");
 	EXPECT_EQ(20, checker.getScoreWithLength());
 }
+
+TEST(SimilarityChecker, getScoreWithLength05) {
+	SimilarityChecker checker("AA", "AAA");
+	EXPECT_EQ(30, checker.getScoreWithLength());
+}

@@ -13,8 +13,8 @@ public:
 		: input1(input1),
 		  input2(input2)
 	{
-		inputLen1 = input1.length();
-		inputLen2 = input2.length();
+		input1Length = input1.length();
+		input2Length = input2.length();
 	}
 
 	int getScoreWithLength()
@@ -24,15 +24,16 @@ public:
 		return calculateScoreWithLenghth();
 	}
 
+private:
 	bool isSameLenth()
 	{
-		return inputLen1 == inputLen2;
+		return input1Length == input2Length;
 	}
 
 	bool isDoubleLength()
 	{
-		int minLength = std::min(inputLen1, inputLen2);
-		int maxLength = std::max(inputLen1, inputLen2);
+		int minLength = std::min(input1Length, input2Length);
+		int maxLength = std::max(input1Length, input2Length);
 		double ratio = static_cast<double>(maxLength) / minLength;
 		return ratio >= 2.0;
 	}
@@ -40,9 +41,9 @@ public:
 	int calculateScoreWithLenghth()
 	{
 		double result = 0;
-		int gap = std::abs(inputLen1 - inputLen2);
+		int gap = std::abs(input1Length - input2Length);
 
-		double gapDivide = static_cast<double>(gap) / static_cast<double>(std::min(inputLen1, inputLen2));
+		double gapDivide = static_cast<double>(gap) / static_cast<double>(std::min(input1Length, input2Length));
 		result = (1 - gapDivide) * MAX_SCORE_LENGTH;
 
 		return static_cast<int>(result);
@@ -51,6 +52,6 @@ public:
 private:
 	string input1;
 	string input2;
-	int inputLen1;
-	int inputLen2;
+	int input1Length;
+	int input2Length;
 };
