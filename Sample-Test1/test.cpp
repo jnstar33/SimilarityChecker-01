@@ -8,3 +8,9 @@ TEST(SimilarityChecker, compareStringLength01) {
 	EXPECT_EQ(60, result);
 }
 
+TEST(SimilarityChecker, compareStringLength02) {
+	string input1 = "A";
+	string input2 = "BB";
+	int result = SimilarityChecker().getScoreWithLength(input1, input2);
+	EXPECT_EQ(0, result);
+}
