@@ -5,6 +5,6 @@ TEST(SimilarityChecker, compareStringLength01) {
 	string input1 = "ASD";
 	string input2 = "DSA";
 	int result = SimilarityChecker().getScoreWithLength(input1, input2);
-	EXPECT_EQ(100, result);
+	EXPECT_EQ(60, result);
 }
 
