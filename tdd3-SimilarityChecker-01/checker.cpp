@@ -29,6 +29,15 @@ public:
 			return SCORE_DOUBLE_LENGTH;
 		}
 
-		return -1;
+		double result = 0;
+		if (len1 > len2 )
+		{
+			int gap = len1 - len2;
+			double gapDivide = static_cast<double>(gap) / static_cast<double>(len2);
+			result = (1 - gapDivide) * MAX_SCORE_LENGTH;
+			
+		}
+
+		return static_cast<int> (result);
 	}
 };
