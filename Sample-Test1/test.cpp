@@ -2,23 +2,21 @@
 #include "../tdd3-SimilarityChecker-01/checker.cpp"
 
 TEST(SimilarityChecker, getScoreWithLength01) {
-	string input1 = "ASD";
-	string input2 = "DSA";
-	int result = SimilarityChecker().getScoreWithLength(input1, input2);
-	EXPECT_EQ(60, result);
+	SimilarityChecker checker("ASD", "DSA");
+	EXPECT_EQ(60, checker.getScoreWithLength());
 }
 
 TEST(SimilarityChecker, getScoreWithLength02) {
-	string input1 = "A";
-	string input2 = "BB";
-	int result = SimilarityChecker().getScoreWithLength(input1, input2);
-	EXPECT_EQ(0, result);
+	SimilarityChecker checker("A", "BB");
+	EXPECT_EQ(0, checker.getScoreWithLength());
 }
 
 TEST(SimilarityChecker, getScoreWithLength03) {
-	string input1 = "AAABB";
-	string input2 = "BAA";
-	int result = SimilarityChecker().getScoreWithLength(input1, input2);
-	EXPECT_EQ(20, result);
+	SimilarityChecker checker("AAABB", "BAA");
+	EXPECT_EQ(20, checker.getScoreWithLength());
 }
 
+TEST(SimilarityChecker, getScoreWithLength04) {
+	SimilarityChecker checker("BAA", "AAABB");
+	EXPECT_EQ(20, checker.getScoreWithLength());
+}
